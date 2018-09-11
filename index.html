@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fishing Game</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="game">
+
+    <!-- /////////// -->
+    <!-- Fishing rod -->
+    <!-- /////////// -->
+
+    <div class="fishing-rod">
+      <img class="fill-container" src="images/fishing-rod.svg" alt="">
+      <canvas class="reel-line-tension"></canvas>
+      <div class="reel-handle">
+        <img src="images/reel-handle.svg" alt="">
+      </div>
+      <div class="reel-line"></div>
+    </div>
+
+    <!-- ///////// -->
+    <!-- Game body -->
+    <!-- ///////// -->
+
+    <div class="game-body">
+      <img class="fill-container" src="images/game-body-bg.svg" alt="">
+      <canvas class="bubbles"></canvas>
+      <canvas class="seaweed"></canvas>
+      <img class="fill-container" src="images/sea-floor.svg" alt="">
+      <div class="fish">
+        <img src="images/fish.svg" alt="">
+      </div>
+      <div class="indicator">
+        <img src="images/indicator.svg" alt="">
+      </div>
+      <img class="fill-container" src="images/glass.svg" alt="">
+    </div>
+
+    <!-- //////////// -->
+    <!-- Progress bar -->
+    <!-- //////////// -->
+
+    <div class="progress-bar">
+      <img class="fill-container" src="images/progress-bar-bg.svg" alt="">
+      <div class="progress-gradient-wrapper">
+          <div class="progress-gradient__cap">
+            <img class="fill-container" src="images/progress-bar-cap.svg" alt="">
+          </div>
+          <img src="images/progress-gradient.svg" class="progress-gradient" alt="">
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>

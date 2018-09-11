@@ -1,0 +1,176 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(ellipse at center, #88c4c2 0%,#56838f 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game {
+  display: flex;
+  align-items: center;
+}
+
+.fill-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ----------- */
+/* Fishing rod */
+/* ----------- */
+
+.fishing-rod {
+  width: 46px;
+  height: 352px;
+  position: relative;
+  margin-right: 10px;
+}
+
+.reel-handle {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 81.2%;
+  left: 1.8%;
+  z-index: 10;
+}
+
+.reel-handle img {
+  animation-name: rotate;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  transform-origin: 12px 2px;
+}
+
+@keyframes rotate {
+  0% {transform: rotate(0deg)}
+  100% {transform: rotate(360deg)}
+}
+
+.reel-line {
+  width: 18px;
+  height: 16px;
+  position: absolute;
+  top: 265px;
+  left: 4px;
+  background: url('../images/reel-loop.png') top left repeat-x;
+  background-size: auto 100%;
+  z-index: 5;
+  animation-name: reel;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  opacity: 0.3;
+}
+
+@keyframes reel {
+  0% {background-position: 0;}
+  100% {background-position: 139px}
+}
+
+.reel-line-tension {
+  width: 42%;
+  height: 13.11%;
+  position: absolute;
+  bottom: 26.84%;
+  left: 29%;
+  /* background: red;
+  opacity: 0.5; */
+}
+
+/* --------- */
+/* Game body */
+/* --------- */
+
+.game-body {
+  width: 36px;
+  height: 353px;
+  position: relative;
+}
+
+.seaweed {
+  width: 94.5%;
+  height: 19%;
+  position: absolute;
+  bottom: 4%;
+  left: 3%;
+  /* background: red;
+  opacity: 0.5; */
+}
+
+.bubbles {
+  width: 94.5%;
+  height: 95.2%;
+  position: absolute;
+  bottom: 4%;
+  left: 2.7%;
+  /* background: red;
+  opacity: 0.5; */
+}
+
+.fish {
+  width: 25px;
+  height: 17px;
+  position: absolute;
+  top: 30%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  opacity: 0.8;
+}
+
+.indicator {
+  width: 34px;
+  height: 46px;
+  position: absolute;
+  top: 50%;
+  left: 3%;
+  transform: translateY(-50%);
+  opacity: 0.8;
+}
+
+/* ------------ */
+/* Progress bar */
+/* ------------ */
+
+.progress-bar {
+  width: 16px;
+  height: 334px;
+  position: relative;
+}
+
+.progress-gradient-wrapper {
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  width: 15px;
+  height: 70%; /* Hide gradient cap when 100% */
+  overflow: hidden;
+}
+
+.progress-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 15px;
+  height: 332px;
+  display: block;
+}
+
+.progress-gradient__cap {
+  width: 100%;
+  height: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
