@@ -94,7 +94,7 @@ body {
 
 .game-body {
   width: 36px;
-  height: 353px;
+  height: 350px;
   position: relative;
 }
 
@@ -132,9 +132,8 @@ body {
   width: 34px;
   height: 46px;
   position: absolute;
-  top: 50%;
+  top: calc(100% - 46px);
   left: 3%;
-  transform: translateY(-50%);
   opacity: 0.8;
 }
 
