@@ -1,3 +1,12 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  user-select: none;
+}
+
 html,
 body {
   height: 100%;
@@ -122,10 +131,10 @@ body {
   width: 25px;
   height: 17px;
   position: absolute;
-  top: 30%;
-  left: 52%;
-  transform: translate(-50%, -50%);
+  top: calc(100% - 17px);
+  left: 18%;
   opacity: 0.8;
+  will-change: top;
 }
 
 .indicator {
@@ -153,9 +162,10 @@ body {
   bottom: 1px;
   left: 0;
   width: 15px;
-  height: 70%;
+  height: 100%;
   overflow: hidden;
   border-top-right-radius: 4px;
+  will-change: height;
 }
 
 .progress-gradient {
