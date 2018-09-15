@@ -83,14 +83,20 @@ class Fish {
     this.fish = document.querySelector('.fish');
     this.height = this.fish.clientHeight;
     this.y = 0;
+    this.delay = 0;
     this.direction = 'up';
-    this.xoff = 0;
-    this.perlinSeed = new Perlin('random seed');
+    // this.xoff = 0;
+    // this.perlinSeed = new Perlin('random seed');
   }
 
   updateFishPosition() {
-    this.xoff += 0.01;
-    this.y = this.perlinSeed.noise(this.xoff, 0, 0) * gameBody.clientHeight;
+    this.delay += 1;
+    if (this.delay === 20) {
+      this.y = Math.random() * (gameBody.clientHeight - this.height) * -1;
+      this.delay = 0;
+    }
+    // this.xoff += 0.015;
+    // this.y = this.perlinSeed.noise(this.xoff, 0, 0) * gameBody.clientHeight;
     // if (this.direction === 'down') {
     //   this.pnValue += 2.5;
     //   if (this.pnValue >= 0) this.direction = 'up';
@@ -99,7 +105,7 @@ class Fish {
     //   if (this.pnValue - this.fish.clientHeight < gameBody.clientHeight * -1) this.direction = 'down';
     // }
     
-    this.fish.style.transform = `translateY(${this.y * -1}px)`;
+    this.fish.style.transform = `translateY(${this.y}px)`;
   }
 }
 
