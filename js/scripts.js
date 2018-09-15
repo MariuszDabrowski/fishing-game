@@ -67,7 +67,9 @@ class Indicator {
       fish.y < this.y && fish.y > this.y - this.height ||
       fish.y - fish.height < this.y && fish.y - fish.height > this.y - this.height
     ) {
-      console.log('collision'); 
+      progressBar.fill();
+    } else {
+      progressBar.drain();
     }
   }
 }
@@ -82,18 +84,22 @@ class Fish {
     this.height = this.fish.clientHeight;
     this.y = 0;
     this.direction = 'up';
+    this.xoff = 0;
+    this.perlinSeed = new Perlin('random seed');
   }
 
   updateFishPosition() {
-    if (this.direction === 'down') {
-      this.y += 0.1;
-      if (this.y >= 0) this.direction = 'up';
-    } else {
-      this.y -= 0.1;
-      if (this.y - this.fish.clientHeight < gameBody.clientHeight * -1) this.direction = 'down';
-    }
+    this.xoff += 0.01;
+    this.y = this.perlinSeed.noise(this.xoff, 0, 0) * gameBody.clientHeight;
+    // if (this.direction === 'down') {
+    //   this.pnValue += 2.5;
+    //   if (this.pnValue >= 0) this.direction = 'up';
+    // } else {
+    //   this.pnValue -= 2.5;
+    //   if (this.pnValue - this.fish.clientHeight < gameBody.clientHeight * -1) this.direction = 'down';
+    // }
     
-    this.fish.style.transform = `translateY(${this.y}px)`;
+    this.fish.style.transform = `translateY(${this.y * -1}px)`;
   }
 }
 
@@ -109,20 +115,14 @@ class ProgressBar {
   }
 
   drain() {
-    if (this.progress > 0) this.progress -= 0.5;
+    if (this.progress > 0) this.progress -= 0.3;
   }
 
   fill() {
-    if (this.progress < 100) this.progress += 0.5;
+    if (this.progress < 100) this.progress += 0.3;
   }
 
   updateUi() {
-    if (mouseDown) {
-      this.fill();
-    } else {
-      this.drain();
-    }
-
     this.progressBar.style.height = `${this.progress}%`
   }
 }
