@@ -27,13 +27,19 @@
     }
 
     draw() {
+      context.beginPath();
+      context.strokeStyle="red";
+      context.lineWidth=2;
       for (let i = 1; i <= this.segments; i++) {
-        context.beginPath();
-        context.strokeStyle="red";
-        context.lineWidth=2;
-        context.arc(Math.sin(this.sin + i) * 10 + 30, this.y + (this.segmentSpread * i), this.radius, 0, 2*Math.PI);
-        context.stroke();
+        if (i === 1) {
+          context.moveTo(Math.sin(this.sin + i) * 10 + 30, this.y + (this.segmentSpread * i));
+        } else {
+          context.lineTo(Math.sin(this.sin + i) * 10 + 30, this.y + (this.segmentSpread * i));
+        }
+        // context.arc(Math.sin(this.sin + i) * 10 + 30, this.y + (this.segmentSpread * i), this.radius, 0, 2*Math.PI); 
       }
+      
+      context.stroke();
 
       this.sin += 0.1;
     }
