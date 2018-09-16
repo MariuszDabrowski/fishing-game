@@ -33,13 +33,6 @@
       context.fillStyle="#143e5a";
       context.lineWidth=2;
       for (let i = this.segments; i >= 0; i--) {
-        context.arc(
-          Math.sin(this.sin + i) * i/2.5 + this.xoff + 0.5,
-          canvas.height + (-i * this.segmentSpread),
-          0.2 * Math.abs(i - this.segments),
-          0,
-          2*Math.PI
-        );
         if (i === this.segments) {
           context.moveTo(
             Math.sin(this.sin + i) * i/2.5 + this.xoff,

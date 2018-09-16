@@ -161,7 +161,7 @@ body {
   top: calc(100% - 46px);
   left: 3%;
   opacity: 0.8;
-  display: none;
+  z-index: 30;
 }
 
 .glass {
