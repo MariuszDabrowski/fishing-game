@@ -50,7 +50,7 @@ class Indicator {
       indicator.y = this.topBounds;
       indicator.velocity = 0;
     } else {
-      if (mouseDown) {
+      if (keyPressed) {
         indicator.applyForce(-0.5);
       }
     }
@@ -139,7 +139,7 @@ class ProgressBar {
 // -----------
 
 const gameBody = document.querySelector('.game-body');
-let mouseDown = false;
+let keyPressed = false;
 const indicator = new Indicator();
 const progressBar = new ProgressBar();
 const fish = new Fish();
@@ -148,16 +148,15 @@ const fish = new Fish();
 // Mouse events
 // ------------
 
-window.addEventListener('mousedown', mouseDownFunc);
-window.addEventListener('mouseup', mouseUpFunc);
+window.addEventListener('mousedown', mouseDown);
+window.addEventListener('mouseup', mouseUp);
+window.addEventListener('keydown', keyDown);
+window.addEventListener('keyup', keyUp);
 
-function mouseDownFunc() {
-  mouseDown = true;
-}
-
-function mouseUpFunc() {
-  mouseDown = false;
-}
+function mouseDown() { keyPressed = true; }
+function mouseUp() { keyPressed = false; }
+function keyDown(e) { if(e.keyCode === 32) keyPressed = true; }
+function keyUp(e) { if(e.keyCode === 32) keyPressed = false; }
 
 // -------------
 // Initiate loop
