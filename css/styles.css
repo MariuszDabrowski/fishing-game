@@ -117,12 +117,19 @@ body {
   position: relative;
 }
 
+.seafloor {
+  position: relative;
+  z-index: 5;
+}
+
 .seaweed {
   width: 94.5%;
   height: 19%;
   position: absolute;
   bottom: 4%;
   left: 3%;
+  z-index: 10;
+  opacity: 0.3;
   /* background: red;
   opacity: 0.5; */
 }
@@ -155,6 +162,10 @@ body {
   left: 3%;
   opacity: 0.8;
   display: none;
+}
+
+.glass {
+  z-index: 20;
 }
 
 /* ------------ */
