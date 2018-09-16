@@ -135,7 +135,6 @@ body {
   left: 18%;
   opacity: 0.8;
   will-change: top;
-  transition: transform 1.5s;
 }
 
 .indicator {
